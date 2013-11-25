@@ -30,7 +30,7 @@ class MasterPage {
 		echo '	<div id="f_content" class="ignoreMe">';
 		echo '		© 2013 by Eddy MONTUS';
 		echo '		<p class="ignoreMe">';
-		echo '			<a href="http://facebook.com/eddy.montus" class="cube_link anim color_facebook ignoreMe" rel="nofollow">';
+		echo '			<a href="#" onclick="alert(\'Je n\\\'ai pas facebook Marc Z. ne s\\\'enrichira pas sur mon dos !\');" class="cube_link anim color_facebook ignoreMe" rel="nofollow">';
 		echo '				F';
 		echo '			</a>';
 		echo '			<a href="https://twitter.com/emnbdx" class="cube_link anim color_twitter ignoreMe" rel="nofollow">';
