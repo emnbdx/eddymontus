@@ -1,15 +1,6 @@
 SetEnv PHP_VER 5_4
 SetEnv REGISTER_GLOBALS 0
 
-# Compression
-SetOutputFilter DEFLATE
-AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/x-javascript
-
-# Charset
-AddDefaultCharset UTF-8
-SetEnv PHP_VER 5_4
-SetEnv REGISTER_GLOBALS 0
-
 # Charset
 AddDefaultCharset UTF-8
 
