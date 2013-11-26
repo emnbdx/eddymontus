@@ -71,7 +71,7 @@
 				<div class="cube color_normal"></div>
 				<div class="cube color_normal"></div>
 				<div class="cube anim color1"></div>
-				<div class="cube anim color3"></div>
+				<a href="nouveauboulot.php" class="cube anim color_special"><p>JOB</p></a>
 				<div class="cube color_normal"></div>
 				<div class="cube color_normal"></div>
 			</div>
