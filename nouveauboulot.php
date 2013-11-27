@@ -7,53 +7,27 @@
 <html>
 	<?php $master->getHead(); ?>
 	
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" />
-    <link rel="stylesheet" href="css/jquery.countdown.css" />
+	<style type="text/css"> 		
+		ul { list-style-image: none; }
 	
-	<style>
-		#note{
-			color: #FFF;
-			font-size: 12px;
-			margin: 0 auto;
-			padding: 4px;
-			text-align: center;
-			text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
-			width: 400px;
-		}
+		#countdown-blog {color:#000;height:200px; margin-left: 40px;}
+		#countdown-blog div.set{float:left; padding:0 50px 0 50px;}
+		#countdown-blog h2{text-align:center; font-size:18px}
+		#countdown-blog ul{list-style-type:none;height:103px;padding:20px 0px 5px}
+		#countdown-blog li{float:left;background:url('img/filmstrip_countdown_9-0.png') 0 0 no-repeat;width:53px;height:103px}
+		#countdown-blog li.comma{background:url('img/comma.png') 2px 75px no-repeat;width:12px}
+		#countdown-blog div.separator{float:left; font:80px Arial,sans-serif; height:103px; padding:25px 0 0;}
 	</style>
 	
 	<body>	
 		<div class="container">
-			<div id="countdown"></div>
-			<p id="note"></p>
+			<div id="countdown-blog" class="content"></div>
 			
 			<a class="btn" href="index.php"><i class="icon-arrow-left"></i> Retour</a>
 		</div>
 	
 		<?php $master->getFooter(); ?>
 		
-		<script src="script/jquery.countdown.js"></script>
-		<script>
-			$(function(){
-				var note = $('#note'),
-					ts = new Date(2014, 1, 25);
-								
-				$('#countdown').countdown({
-					timestamp	: ts,
-					callback	: function(days, hours, minutes, seconds){
-						
-						var message = "";
-						
-						message += days + " day" + ( days==1 ? '':'s' ) + ", ";
-						message += hours + " hour" + ( hours==1 ? '':'s' ) + ", ";
-						message += minutes + " minute" + ( minutes==1 ? '':'s' ) + " and ";
-						message += seconds + " second" + ( seconds==1 ? '':'s' ) + " <br />";
-						
-						note.html(message);
-					}
-				});
-				
-			});
-		</script>
+		<script src="script/countdown.js"></script>
 	</body>
 </html>
