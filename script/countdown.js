@@ -1,7 +1,7 @@
 //<![CDATA[
 
 // SET TARGET DATE HERE
-var target = 'February 25, 2014';
+var target = 'January 31, 2014';
 
 // That's all you need to do.
 
