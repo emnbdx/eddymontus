@@ -20,21 +20,23 @@ target = (window.location.search == "") ? target : window.location.search.substr
 // Starting numbers
 var nowCountdown = new Date().getTime();
 var endCountdown = Date.parse(target);
-var theDiffCountdown;
-var theDiffStringCountdown;
 // Fix if date is in past
 if (endCountdown < nowCountdown){
 	alert('Bye Bye Tessi, Welcome MailForGood !');
 	initialDigitCheckCountdown('00:00:00:00');
-	return;
 } else {
-	theDiffCountdown = endCountdown-nowCountdown;
-	theDiffStringCountdown = getTimeStringCountdown(theDiffCountdown);
+	var theDiffCountdown = endCountdown-nowCountdown;
+	var theDiffStringCountdown = getTimeStringCountdown(theDiffCountdown);
+
+	// Increment (count one second at a time)
+	var incrementCountdown = 1000;
+	// Pace of counting in milliseconds (refresh digits every second)
+	var paceCountdown = 1000;
+
+	// Start it up
+	initialDigitCheckCountdown(theDiffStringCountdown);
+	setInterval(doCountCountdown, paceCountdown);
 }
-// Increment (count one second at a time)
-var incrementCountdown = 1000;
-// Pace of counting in milliseconds (refresh digits every second)
-var paceCountdown = 1000;
 
 // Function that controls counting
 function doCountCountdown(){
@@ -134,9 +136,5 @@ function initialDigitCheckCountdown(initial){
 		}
 	}
 }
-
-// Start it up
-initialDigitCheckCountdown(theDiffStringCountdown);
-setInterval(doCountCountdown, paceCountdown);
-
+	
 //]]>
