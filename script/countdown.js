@@ -1,7 +1,7 @@
 //<![CDATA[
 
 // SET TARGET DATE HERE
-var target = 'January 31, 2014';
+var target = 'January 31, 2014 17:00';
 
 // That's all you need to do.
 
@@ -20,15 +20,17 @@ target = (window.location.search == "") ? target : window.location.search.substr
 // Starting numbers
 var nowCountdown = new Date().getTime();
 var endCountdown = Date.parse(target);
+var theDiffCountdown;
+var theDiffStringCountdown;
 // Fix if date is in past
 if (endCountdown < nowCountdown){
-	alert('');
-	target = 'June 12, 2011';
-	endCountdown = Date.parse(target);
+	alert('Bye Bye Tessi, Welcome MailForGood !');
+	initialDigitCheckCountdown('00:00:00:00');
+	return;
+} else {
+	theDiffCountdown = endCountdown-nowCountdown;
+	theDiffStringCountdown = getTimeStringCountdown(theDiffCountdown);
 }
-var theDiffCountdown = endCountdown-nowCountdown;
-var theDiffStringCountdown = getTimeStringCountdown(theDiffCountdown);
-
 // Increment (count one second at a time)
 var incrementCountdown = 1000;
 // Pace of counting in milliseconds (refresh digits every second)
