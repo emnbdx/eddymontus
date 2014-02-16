@@ -89,7 +89,8 @@
 				<div class="cube anim color2"></div>
 				<div class="cube anim color4"></div>
 				<div class="cube anim color1"></div>
-				<a href="/EmAppManager" class="cube anim color2" rel="nofollow"></a>
+				<div class="cube anim color2"></div>
+				<!--<a href="/LBCAlerterWeb" class="cube anim color2" rel="nofollow"></a>-->
 			</div>
 		</div>
 		
