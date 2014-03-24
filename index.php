@@ -11,7 +11,7 @@
 			<!-- E --> 
 			<div class="grid_1">
 				<div class="cube anim color1"></div>
-				<a href="cv.php" class="cube anim color_special"><p>CV</p></a>
+				<a href="cv.php" class="cube anim color_special"><div class="center">CV</div></a>
 				<div class="cube anim color3"></div>
 				<div class="cube anim color4"></div>
 				<div class="cube anim color2"></div>
@@ -31,7 +31,7 @@
 				<div class="cube anim color4"></div>
 				<div class="cube color_normal"></div>
 				<div class="cube color_normal"></div>
-				<a href="blog.php" class="cube anim color_special"><p>BLOG</p></a>
+				<a href="blog.php" class="cube anim color_special"><div class="center">BLOG</div></a>
 			</div>
 			<div class="grid_1">
 				<div class="cube anim color1"></div>
@@ -52,7 +52,7 @@
 			
 			<!-- M --> 
 			<div class="grid_1">
-				<a href="amis.php" class="cube anim color_special"><p>AMIS</p></a>
+				<a href="amis.php" class="cube anim color_special"><div class="center">AMIS</div></a>
 				<div class="cube anim color2"></div>
 				<div class="cube anim color3"></div>
 				<div class="cube anim color2"></div>
@@ -71,7 +71,7 @@
 				<div class="cube color_normal"></div>
 				<div class="cube color_normal"></div>
 				<div class="cube anim color1"></div>
-				<a href="nouveauboulot.php" class="cube anim color_special"><p>JOB</p></a>
+				<a href="http://lbcalerter.eddymontus.fr" class="cube anim color_special"><div class="center twoline">LBC ALERTER</div></a>
 				<div class="cube color_normal"></div>
 				<div class="cube color_normal"></div>
 			</div>

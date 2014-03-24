@@ -62,9 +62,12 @@ body {
 	vertical-align: middle;
 }
 
-.grid_1 a p {
-	margin-top: 0px;
+.center {
 	padding-top: 30px;
+}
+
+.twoline {
+	padding-top: 20px;
 }
 
 .cube_link {
