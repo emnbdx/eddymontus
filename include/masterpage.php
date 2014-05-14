@@ -33,7 +33,7 @@ class MasterPage {
 		echo '			<a href="#" onclick="alert(\'Je n\\\'ai pas facebook Marc Z. ne s\\\'enrichira pas sur mon dos !\');" class="cube_link anim color_facebook ignoreMe" rel="nofollow">';
 		echo '				F';
 		echo '			</a>';
-		echo '			<a href="https://twitter.com/emnbdx" class="cube_link anim color_twitter ignoreMe" rel="nofollow">';
+		echo '			<a href="https://twitter.com/emnbdx" class="cube_link anim color_twitter ignoreMe" rel="nofollow" target="_blank">';
 		echo '				T';
 		echo '			</a>';
 		echo '		</p>';

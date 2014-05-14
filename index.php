@@ -71,7 +71,7 @@
 				<div class="cube color_normal"></div>
 				<div class="cube color_normal"></div>
 				<div class="cube anim color1"></div>
-				<a href="http://lbcalerter.eddymontus.fr" class="cube anim color_special"><div class="center twoline">LBC ALERTER</div></a>
+				<a href="http://lbcalerter.eddymontus.fr" class="cube anim color_special" target="_blank"><div class="center twoline">LBC ALERTER</div></a>
 				<div class="cube color_normal"></div>
 				<div class="cube color_normal"></div>
 			</div>
