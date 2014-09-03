@@ -10,9 +10,9 @@
 		<div class="container">
 			<div class="content">
 				<center>
-					<a href="http://www.emreparation.fr">Un des meilleurs services de réparation PC et téléphone</a><br/>
-					<a href="http://lamaisondesvignes.free.fr">Une super chambre d'hôtes</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="http://www.legitemarengo.com">gite</a><br/>
-					<a href="http://www.air3bordeaux.org">Mon ancienne équipe de course à pied</a>
+					<a href="http://www.emreparation.fr" target="_blank">Un des meilleurs services de réparation PC et téléphone</a><br/>
+					<a href="http://lamaisondesvignes.free.fr" target="_blank">Une super chambre d'hôtes</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="http://www.legitemarengo.com" target="_blank">gite</a><br/>
+					<a href="http://www.air3bordeaux.org" target="_blank">Mon ancienne équipe de course à pied</a>
 				</center>
 			</div>
 			
