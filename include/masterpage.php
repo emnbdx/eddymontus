@@ -28,7 +28,7 @@ class MasterPage {
 	public function getFooter() {
 		echo '<div id="footer" class="ignoreMe">';
 		echo '	<div id="f_content" class="ignoreMe">';
-		echo '		© 2013 by Eddy MONTUS';
+		echo '		© 2013 - ' . date("Y") . ' by Eddy MONTUS';
 		echo '		<p class="ignoreMe">';
 		echo '			<a href="#" onclick="alert(\'Je n\\\'ai pas facebook Marc Z. ne s\\\'enrichira pas sur mon dos !\');" class="cube_link anim color_facebook ignoreMe" rel="nofollow">';
 		echo '				F';
