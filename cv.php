@@ -52,10 +52,11 @@
 			</div>
 		</div>
 		
-		
 
 		<?php $master->getFooter(); ?>
-		
+
+
+		<script type="text/javascript" src="js/jGravity-min.js"></script>	
 		<script>
 			$(document).ready(function() {
 			$("#jGravity").click(function() {

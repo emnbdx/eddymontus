@@ -43,7 +43,7 @@
 			</div>
 			<div class="grid_1 suffix_2">
 				<!--<div class="cube anim color4"></div>-->
-				<a href="http://www.leddydine.fr/" class="cube anim color_special" target="_blank"><div class="center twoline">LEDDY DINE</div></a>
+				<a href="http://www.leddydine.fr/" class="cube anim color_special" target="_blank"><div class="center twoline">L'EDDY DINE</div></a>
 				<div class="cube color_normal"></div>
 				<div class="cube color_normal"></div>
 				<div class="cube color_normal"></div>

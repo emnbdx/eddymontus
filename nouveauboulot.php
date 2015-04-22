@@ -28,6 +28,6 @@
 	
 		<?php $master->getFooter(); ?>
 		
-		<script src="script/countdown.js"></script>
+		<script src="js/countdown.min.js"></script>
 	</body>
 </html>
