@@ -8,12 +8,13 @@
 	<?php $master->getHead(); ?>
 	<body>
 		<div class="container">
-			<div class="content">
+			<div class="content friends">
 				<center>
-					<a href="http://www.emreparation.fr" target="_blank">Un des meilleurs services de réparation PC et téléphone</a><br/>
-					<a href="http://lamaisondesvignes.free.fr" target="_blank">Une super chambre d'hôtes</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="http://www.legitemarengo.com" target="_blank">gite</a><br/>
-					<a href="http://jetalize.fr" target="_blank">De la location de Jet Ski à La Tremblade</a><br/>
-					<a href="http://www.air3bordeaux.org" target="_blank">Mon ancienne équipe de course à pied</a>
+					<a href="http://www.emreparation.fr" target="_blank" title="Un des meilleurs services de réparation PC et téléphone"><img src="img/emreparation.jpg" /></a>
+					<a href="http://lamaisondesvignes.free.fr" target="_blank" title="Une super chambre d'hôtes"><img src="img/lamaisondesvignes.jpg" /></a>
+					<a href="http://www.legitemarengo.com" target="_blank" title="Un super gite"><img src="img/legitemarengo.jpg" /></a>
+					<a href="http://jetalize.fr" target="_blank" title="De la location de Jet Ski à La Tremblade"><img src="img/jetalize.jpg" /></a>
+					<a href="http://www.air3bordeaux.org" target="_blank" title="Mon ancienne équipe de course à pied"><img src="img/air3bordeaux.jpg" /></a>
 				</center>
 			</div>
 			

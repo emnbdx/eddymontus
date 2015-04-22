@@ -6,8 +6,8 @@ class MasterPage {
 		echo '	<title>Eddy MONTUS</title>';
 		
 		echo '	<link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">';
-		echo '	<link href="css/global.css" rel="stylesheet">';
-		echo '	<link href="css/grid.css" rel="stylesheet">';
+		echo '	<link href="css/global.min.css" rel="stylesheet">';
+		echo '	<link href="css/grid.min.css" rel="stylesheet">';
 
 		echo '</head>';
 	}
