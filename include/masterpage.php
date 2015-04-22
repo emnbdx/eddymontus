@@ -15,7 +15,7 @@ class MasterPage {
 		echo "		ga('send', 'pageview');";
 		echo '	</script>';
 		
-		echo '	<!-- Bootstrap -->';
+		echo '	<link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">';
 		echo '	<link href="css/global.css" rel="stylesheet">';
 		echo '	<link href="css/grid.css" rel="stylesheet">';
 		

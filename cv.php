@@ -12,16 +12,17 @@
 				<div class="content c_color1 gravity">
 					Compétences:<br/>
 					<div class="text">
-						C#, .NetFramework 2/4, ASP.NET, Entity Framework, MVC 4<br/>
+						C#, ASP.NET, Entity Framework, MVC<br/>
 						Java, servlet, jsp/struts<br/>
 						SQLServer, MySQL<br/>
-						PHP 5, HTML5, Javascript
+						PHP, HTML, Javascript, CSS
 					</div>
 				</div>
 				<div class="content c_color2 gravity">
 					Expériences:<br/>
 					<div class="text">
-						2008 - Tessi Technologies<br/>
+						2014 - HelloAsso<br/>
+						2008/2014 - Tessi Technologies<br/>
 						avril/juin 2008 - Stage hôpital de Rochefort<br/>
 						octobre/avril 2008 - Chef de projet scolaire
 					</div>
