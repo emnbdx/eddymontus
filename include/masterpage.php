@@ -17,8 +17,8 @@ class MasterPage {
 		echo '	<div id="f_content" class="ignoreMe">';
 		echo '		© 2013 - ' . date("Y") . ' by Eddy MONTUS';
 		echo '		<p class="ignoreMe">';
-		echo '			<a href="#" onclick="alert(\'Je n\\\'ai pas facebook Marc Z. ne s\\\'enrichira pas sur mon dos !\');" class="cube_link anim color_facebook ignoreMe" rel="nofollow">';
-		echo '				F';
+		echo '			<a href="https://fr.linkedin.com/pub/eddy-montus/a8/b6/387" class="cube_link anim color_linkedin ignoreMe" rel="nofollow">';
+		echo '				In';
 		echo '			</a>';
 		echo '			<a href="https://twitter.com/emnbdx" class="cube_link anim color_twitter ignoreMe" rel="nofollow" target="_blank">';
 		echo '				T';
