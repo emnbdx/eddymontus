@@ -17,11 +17,14 @@ class MasterPage {
 		echo '	<div id="f_content" class="ignoreMe">';
 		echo '		© 2013 - ' . date("Y") . ' by Eddy MONTUS';
 		echo '		<p class="ignoreMe">';
-		echo '			<a href="https://fr.linkedin.com/pub/eddy-montus/a8/b6/387" class="cube_link anim color_linkedin ignoreMe" rel="nofollow" target="_blank">';
-		echo '				In';
+		echo '			<a href="https://github.com/emnbdx" class="cube_link ignoreMe" rel="nofollow" target="_blank">';
+		echo '				<img src="img/github_logo.png" alt="logo github" class="anim" />';
 		echo '			</a>';
-		echo '			<a href="https://twitter.com/emnbdx" class="cube_link anim color_twitter ignoreMe" rel="nofollow" target="_blank">';
-		echo '				T';
+		echo '			<a href="https://fr.linkedin.com/pub/eddy-montus/a8/b6/387" class="cube_link ignoreMe" rel="nofollow" target="_blank">';
+		echo '				<img src="img/linkedin_logo.png" alt="logo likedin" class="anim" />';
+		echo '			</a>';
+		echo '			<a href="https://twitter.com/emnbdx" class="cube_link ignoreMe" rel="nofollow" target="_blank">';
+		echo '				<img src="img/twitter_logo.png" alt="logo twitter" class="anim" />';
 		echo '			</a>';
 		echo '		</p>';
 		echo '	</div>';

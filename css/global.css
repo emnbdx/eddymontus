@@ -40,22 +40,6 @@ body {
 	background-color: Black;
 }
 
-.color_facebook {
-	background-color: #3B5998;
-}
-
-.color_twitter {
-	background-color: #32CCFE;
-}
-
-.color_linkedin {
-	background-color: #0077B5;
-}
-
-.color_normal {
-	
-}
-
 .cube {
 	display: block;
 	width:80px;
@@ -75,17 +59,23 @@ body {
 	padding-top: 20px;
 }
 
-.cube_link {
+.cube_link {	
 	width:20px;
 	height:20px;
-	float:left;
+
+	/*float:left;
 	
 	color: white;
 	text-decoration:none;
 	text-align: center;
 	vertical-align: middle;
 
-	margin-left: 10px;
+	margin-left: 10px;*/
+}
+
+.cube_link img {
+	width:20px;
+	height:20px;
 }
 
 .anim {
