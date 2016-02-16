@@ -16,6 +16,7 @@
 					<p><input type="checkbox" disabled> - Boire 10 chimay bleue</p>
 					<p><input type="checkbox" disabled checked> - Faire le ramadan</p>
 					<p><input type="checkbox" disabled checked> - Ne pas manger pendant une semaine</p>
+					<p><input type="checkbox" disabled checked> - Construire un joli lustre <a href="http://www.instructables.com/id/How-to-save-1164407-on-a-designer-lighting-fixtu/?ALLSTEPS" target="_blank">comme celui-ci</a></p>					
 					<p><input type="checkbox" disabled checked> - Courir mon premier Marathon</p>
 				</div>
 				<div>
