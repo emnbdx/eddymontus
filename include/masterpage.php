@@ -5,7 +5,7 @@ class MasterPage {
 		echo '<head>';
 		echo '	<title>Eddy MONTUS</title>';
 		
-		echo '	<link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">';
+		echo '	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">';
 		echo '	<link href="css/global.min.css" rel="stylesheet">';
 		echo '	<link href="css/grid.min.css" rel="stylesheet">';
 
@@ -30,7 +30,7 @@ class MasterPage {
 		echo '	</div>';
 		echo '</div>';
 
-		echo '	<script src="http://code.jquery.com/jquery.min.js"></script>';
+		echo '	<script src="https://code.jquery.com/jquery.min.js"></script>';
 		echo '	<script type="text/javascript" src="js/jGravity-min.js"></script>';
 		
 		echo '<script>';
