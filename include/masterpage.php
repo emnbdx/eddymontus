@@ -20,12 +20,6 @@ class MasterPage {
 		echo '			<a href="https://github.com/emnbdx" class="cube_link ignoreMe" rel="nofollow" target="_blank">';
 		echo '				<img src="img/github_logo.png" alt="logo github" class="anim" />';
 		echo '			</a>';
-		echo '			<a href="https://fr.linkedin.com/pub/eddy-montus/a8/b6/387" class="cube_link ignoreMe" rel="nofollow" target="_blank">';
-		echo '				<img src="img/linkedin_logo.png" alt="logo likedin" class="anim" />';
-		echo '			</a>';
-		echo '			<a href="https://twitter.com/emnbdx" class="cube_link ignoreMe" rel="nofollow" target="_blank">';
-		echo '				<img src="img/twitter_logo.png" alt="logo twitter" class="anim" />';
-		echo '			</a>';
 		echo '		</p>';
 		echo '	</div>';
 		echo '</div>';
