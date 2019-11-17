@@ -53,33 +53,35 @@
 			
 			<!-- M --> 
 			<div class="grid_1">
+				<div class="cube anim color4"></div>
+				<div class="cube anim color2"></div>
+				<div class="cube anim color3"></div>
+				<div class="cube anim color2"></div>
+				<div class="cube anim color1"></div>
+				<div class="cube anim color4"></div>
+				<!-- <a href="defis.php" class="cube anim color_special"><div class="center">DEFIS</div></a> -->
+			</div>
+			<div class="grid_1">
+				<div class="cube color_normal"></div>
+				<div class="cube anim color3"></div>
+				<div class="cube anim color4"></div>
+				<div class="cube color_normal"></div>
+				<div class="cube color_normal"></div>
+				<div class="cube color_normal"></div>
+			</div>
+			<div class="grid_1">
+				<div class="cube color_normal"></div>
+				<div class="cube color_normal"></div>
+				<div class="cube anim color1"></div>
+				<div class="cube anim color2"></div>
+				<div class="cube color_normal"></div>
+				<div class="cube color_normal"></div>
+			</div>
+			<div class="grid_1">
+				<div class="cube color_normal"></div>
+				<div class="cube anim color2"></div>
 				<a href="amis.php" class="cube anim color_special"><div class="center">AMIS</div></a>
-				<div class="cube anim color2"></div>
-				<div class="cube anim color3"></div>
-				<div class="cube anim color2"></div>
-				<div class="cube anim color1"></div>
-				<a href="defis.php" class="cube anim color_special"><div class="center">DEFIS</div></a>
-			</div>
-			<div class="grid_1">
-				<div class="cube color_normal"></div>
-				<div class="cube anim color3"></div>
-				<div class="cube anim color4"></div>
-				<div class="cube color_normal"></div>
-				<div class="cube color_normal"></div>
-				<div class="cube color_normal"></div>
-			</div>
-			<div class="grid_1">
-				<div class="cube color_normal"></div>
-				<div class="cube color_normal"></div>
-				<div class="cube anim color1"></div>
-				<div class="cube anim color2"></div>
-				<div class="cube color_normal"></div>
-				<div class="cube color_normal"></div>
-			</div>
-			<div class="grid_1">
-				<div class="cube color_normal"></div>
-				<div class="cube anim color2"></div>
-				<a href="http://lbcalerter.com" class="cube anim color_special" target="_blank"><div class="center twoline">LBC ALERTER</div></a>
+				<!-- <a href="http://lbcalerter.com" class="cube anim color_special" target="_blank"><div class="center twoline">LBC ALERTER</div></a> -->
 				<div class="cube color_normal"></div>
 				<div class="cube color_normal"></div>
 				<div class="cube color_normal"></div>
@@ -91,7 +93,6 @@
 				<div class="cube anim color4"></div>
 				<div class="cube anim color1"></div>
 				<div class="cube anim color2"></div>
-				<!--<a href="/LBCAlerterWeb" class="cube anim color2" rel="nofollow"></a>-->
 			</div>
 		</div>
 		
