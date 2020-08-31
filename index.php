@@ -80,7 +80,7 @@
 			<div class="grid_1">
 				<div class="cube color_normal"></div>
 				<div class="cube anim color2"></div>
-				<a href="amis.php" class="cube anim color_special"><div class="center">AMIS</div></a>
+				<a href="work.php" class="cube anim color_special"><div class="center">WORK</div></a>
 				<!-- <a href="http://lbcalerter.com" class="cube anim color_special" target="_blank"><div class="center twoline">LBC ALERTER</div></a> -->
 				<div class="cube color_normal"></div>
 				<div class="cube color_normal"></div>
