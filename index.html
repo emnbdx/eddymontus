@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eddy Montus - Double CTO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --mc-gray: #aaaaaa;
+        --mc-dark-gray: #313131;
+        --mc-green: #55ff55;
+        --mc-bg: rgba(0, 0, 0, 0.5);
+      }
+
+      html {
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAABxpRE9UAAAAAgAAAAAAAAAIAAAAKAAAAAgAAAAIAAAARnQWMQAAACRJREFUOBFj/P//PwMlgImBQjBqwLAwwKiBw8cA3Yxo/g80AAA+4A/xW80m+wAAAABJRU5ErkJggg=="),
+          crosshair;
+      }
+
+      body {
+        font-family: "VT323", monospace;
+        overflow: hidden;
+        background-color: #1a1a1a;
+        color: white;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+
+      #hero-video {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        transform: translate(-50%, -50%);
+        filter: brightness(0.7);
+        object-fit: cover;
+      }
+
+      .pixel-grid-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.15) 1px,
+            transparent 1px
+          ),
+          linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 1px, transparent 1px);
+        background-size: 3px 3px;
+      }
+
+      .ui-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        pointer-events: none;
+      }
+
+      .crosshair {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        transform: translate(-50%, -50%);
+        opacity: 0.8;
+      }
+
+      .crosshair::before,
+      .crosshair::after {
+        content: "";
+        position: absolute;
+        background: rgba(255, 255, 255, 0.8);
+      }
+
+      .crosshair::before {
+        top: 9px;
+        left: 0;
+        width: 20px;
+        height: 2px;
+      }
+
+      .crosshair::after {
+        top: 0;
+        left: 9px;
+        width: 2px;
+        height: 20px;
+      }
+
+      .title-screen {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        text-shadow: 4px 4px 0 #3f3f3f;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .main-title {
+        font-size: 6rem;
+        color: #ffffff;
+        margin-bottom: 0;
+        line-height: 1;
+      }
+
+      .subtitle {
+        font-size: 3rem;
+        color: #ffff55;
+        margin-top: 10px;
+        text-transform: uppercase;
+      }
+
+      .splash-text {
+        position: absolute;
+        top: 0;
+        right: 120px;
+        font-size: 1.5rem;
+        color: #ffff55;
+        transform: rotate(-20deg);
+        animation: pulse 0.5s alternate infinite;
+      }
+
+      .hotbar-container {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.4);
+        padding: 5px;
+        border: 2px solid #333;
+        display: flex;
+        gap: 5px;
+        pointer-events: auto;
+        flex-wrap: nowrap;
+        justify-content: center;
+      }
+
+      .hotbar-slot {
+        width: 64px;
+        height: 64px;
+        background: #8b8b8b;
+        border: 4px solid #373737;
+        border-left-color: #fff;
+        border-top-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.1s;
+        position: relative;
+      }
+
+      .hotbar-slot:hover {
+        background: #a0a0a0;
+        transform: scale(1.1);
+      }
+
+      .hotbar-slot.active {
+        border-color: white;
+        background: #bdbdbd;
+      }
+
+      .slot-icon {
+        font-size: 2rem;
+        color: #333;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+      }
+
+      .slot-number {
+        position: absolute;
+        top: 2px;
+        left: 4px;
+        font-size: 1rem;
+        color: white;
+        text-shadow: 1px 1px 0 #000;
+      }
+
+      .chat-box {
+        position: absolute;
+        bottom: 100px;
+        left: 20px;
+        width: 400px;
+        font-size: 1.2rem;
+        color: white;
+        text-shadow: 1px 1px 0 #000;
+        pointer-events: none;
+      }
+
+      .chat-message {
+        margin-bottom: 5px;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 2px 5px;
+        display: none;
+      }
+
+      .debug-info {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 1rem;
+        color: white;
+        text-shadow: 1px 1px 0 #000;
+        line-height: 1.2;
+        opacity: 0.7;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(-50%, -50%);
+        }
+        50% {
+          transform: translate(-50%, -55%);
+        }
+      }
+
+      @keyframes pulse {
+        from {
+          transform: rotate(-20deg) scale(1);
+        }
+        to {
+          transform: rotate(-20deg) scale(1.1);
+        }
+      }
+
+      .item-tooltip {
+        position: absolute;
+        bottom: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #100010;
+        color: white;
+        border: 2px solid #2d0a3f;
+        padding: 5px 10px;
+        font-size: 1.2rem;
+        display: none;
+        z-index: 10;
+        text-align: center;
+        border-radius: 2px;
+        box-shadow: 2px 2px 0 #000;
+      }
+
+      .item-name {
+        color: #55ff55;
+      }
+      .item-lore {
+        color: #aaaaaa;
+        font-style: italic;
+        font-size: 0.9rem;
+      }
+
+      /* Button Style for Links */
+      .mc-btn {
+        background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==")
+          repeat;
+        background-color: #7d7d7d;
+        border: 2px solid #000;
+        box-shadow: inset 2px 2px 0 #c6c6c6, inset -2px -2px 0 #555;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-size: 1.5rem;
+        text-shadow: 2px 2px 0 #000;
+        display: inline-block;
+        margin-top: 20px;
+      }
+
+      .mc-btn:active {
+        box-shadow: inset 2px 2px 0 #555, inset -2px -2px 0 #c6c6c6;
+        transform: translateY(2px);
+      }
+
+      @media (max-width: 1024px) {
+        .main-title {
+          font-size: 4.5rem;
+        }
+        .subtitle {
+          font-size: 2rem;
+        }
+        .splash-text {
+          right: 60px;
+        }
+        .chat-box {
+          width: 350px;
+          font-size: 1rem;
+        }
+        .hotbar-slot {
+          width: 56px;
+          height: 56px;
+        }
+        .slot-icon {
+          font-size: 1.5rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .main-title {
+          font-size: 3rem;
+        }
+        .subtitle {
+          font-size: 1.5rem;
+        }
+        .splash-text {
+          right: 20px;
+          top: 10px;
+        }
+        .chat-box {
+          width: calc(100% - 40px);
+          left: 20px;
+          bottom: 120px;
+          font-size: 0.9rem;
+        }
+        .hotbar-container {
+          padding: 3px;
+          gap: 3px;
+          bottom: 10px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        .hotbar-slot {
+          width: 48px;
+          height: 48px;
+        }
+        .slot-icon {
+          font-size: 1.2rem;
+        }
+        .slot-number {
+          font-size: 0.8rem;
+          top: 1px;
+          left: 2px;
+        }
+        .title-screen {
+          top: 15%;
+          width: 90%;
+          left: 50%;
+        }
+        .debug-info {
+          font-size: 0.8rem;
+          top: 5px;
+          left: 5px;
+        }
+        .item-tooltip {
+          width: 90%;
+          left: 5%;
+          font-size: 1rem;
+          bottom: 70px;
+        }
+        .crosshair {
+          width: 16px;
+          height: 16px;
+        }
+        .crosshair::before {
+          top: 7px;
+          width: 16px;
+          height: 2px;
+        }
+        .crosshair::after {
+          top: 0;
+          left: 7px;
+          width: 2px;
+          height: 16px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .main-title {
+          font-size: 2rem;
+        }
+        .subtitle {
+          font-size: 1rem;
+          margin-top: 5px;
+        }
+        .splash-text {
+          right: 10px;
+          top: 5px;
+        }
+        .chat-box {
+          width: calc(100% - 20px);
+          left: 10px;
+          bottom: 110px;
+          font-size: 0.75rem;
+        }
+        .hotbar-container {
+          padding: 2px;
+          gap: 2px;
+          bottom: 5px;
+          left: 50%;
+          transform: translateX(-50%);
+          flex-wrap: nowrap;
+        }
+        .hotbar-slot {
+          width: 40px;
+          height: 40px;
+        }
+        .slot-icon {
+          font-size: 1rem;
+        }
+        .slot-number {
+          font-size: 0.7rem;
+        }
+        .title-screen {
+          top: 10%;
+          width: 95%;
+        }
+      }
+
+      @media (max-width: 425px) {
+        .title-screen {
+          top: 20%;
+        }
+        .debug-info {
+          font-size: 0.7rem;
+          line-height: 1.1;
+        }
+        .debug-info p {
+          margin: 2px 0;
+        }
+        .item-tooltip {
+          width: 95%;
+          left: 2.5%;
+          font-size: 0.9rem;
+          padding: 3px 8px;
+          bottom: 60px;
+        }
+        .item-lore {
+          font-size: 0.8rem;
+        }
+        .mc-btn {
+          font-size: 1.2rem;
+          padding: 8px 16px;
+          margin-top: 10px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .main-title {
+          font-size: 1.5rem;
+        }
+        .subtitle {
+          font-size: 0.9rem;
+        }
+        .hotbar-container {
+          padding: 2px;
+          gap: 1px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        .hotbar-slot {
+          width: 32px;
+          height: 32px;
+        }
+        .slot-icon {
+          font-size: 0.8rem;
+        }
+        .slot-number {
+          font-size: 0.6rem;
+        }
+      }
+
+      @media (orientation: landscape) and (max-height: 500px) {
+        .title-screen {
+          top: 10%;
+        }
+        .main-title {
+          font-size: 2.5rem;
+        }
+        .subtitle {
+          font-size: 1.2rem;
+        }
+        .chat-box {
+          bottom: 80px;
+        }
+        .hotbar-container {
+          bottom: 5px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <video id="hero-video" autoplay muted loop playsinline>
+      <!-- Provide WebM as first for better web compatibility -->
+      <source src="background.webm" type="video/webm" />
+      <source src="background.mp4" type="video/mp4" />
+      <!-- Fallback if neither video type is supported -->
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="pixel-grid-overlay"></div>
+
+    <div class="ui-layer">
+      <div class="debug-info">
+        <p>Minecraft 1.20.4 (1.20.4/vanilla)</p>
+        <p>60 fps T: 120 fast-fancy</p>
+        <p>E: 0/0 U: 0/0</p>
+        <p>XYZ: 124.500 / 64.00000 / -234.123</p>
+        <p>Biome: Tech_Valley</p>
+      </div>
+
+      <div class="title-screen">
+        <h1 class="main-title">EDDY MONTUS</h1>
+        <div class="splash-text" id="splash-text">Double CTO!</div>
+        <h2 class="subtitle">Famille d'abord, sport ensuite, tech toujours</h2>
+      </div>
+
+      <div class="crosshair"></div>
+
+      <div class="chat-box" id="chat-box">
+        <div class="chat-message">
+          &lt;System&gt; Welcome to Eddy's Portfolio v2.0
+        </div>
+        <div class="chat-message">&lt;Eddy&gt; Looking for a Double CTO?</div>
+        <div class="chat-message" style="color: #ffff55">
+          * Press numbers 1-3 to navigate *
+        </div>
+      </div>
+    </div>
+
+    <div class="item-tooltip" id="tooltip">
+      <div class="item-name" id="tooltip-name">Item Name</div>
+      <div class="item-lore" id="tooltip-desc">Description</div>
+    </div>
+
+    <div class="hotbar-container">
+      <div
+        class="hotbar-slot"
+        onclick="visitLink('linkedin')"
+        onmouseenter="showTooltip('LinkedIn', 'Connect with me', 'linkedin')"
+        onmouseleave="hideTooltip()"
+      >
+        <span class="slot-number">1</span>
+        <div class="slot-icon">💼</div>
+      </div>
+      <div
+        class="hotbar-slot"
+        onclick="visitLink('github')"
+        onmouseenter="showTooltip('GitHub', 'View my code', 'github')"
+        onmouseleave="hideTooltip()"
+      >
+        <span class="slot-number">2</span>
+        <div class="slot-icon">👨‍💻</div>
+      </div>
+      <div class="hotbar-slot" style="background: #555">
+        <span class="slot-number">3</span>
+      </div>
+      <div class="hotbar-slot" style="background: #555">
+        <span class="slot-number">4</span>
+      </div>
+      <div class="hotbar-slot" style="background: #555">
+        <span class="slot-number">5</span>
+      </div>
+      <div class="hotbar-slot" style="background: #555">
+        <span class="slot-number">6</span>
+      </div>
+      <div
+        class="hotbar-slot"
+        onclick="visitLink('24h')"
+        onmouseenter="showTooltip('Défi', '24h des quais', '24h')"
+        onmouseleave="hideTooltip()"
+      >
+        <span class="slot-number">8</span>
+        <div class="slot-icon">🏃‍♂️</div>
+      </div>
+      <div
+        class="hotbar-slot"
+        onclick="visitLink('mdel')"
+        onmouseenter="showTooltip('Build', 'Madietenligne', 'mdel')"
+        onmouseleave="hideTooltip()"
+      >
+        <span class="slot-number">8</span>
+        <div class="slot-icon">🧑‍⚕️</div>
+      </div>
+      <div
+        class="hotbar-slot"
+        onclick="visitLink('spreadly')"
+        onmouseenter="showTooltip('Build', 'Spreadlove', 'spreadly')"
+        onmouseleave="hideTooltip()"
+      >
+        <span class="slot-number">9</span>
+        <div class="slot-icon">💌</div>
+      </div>
+    </div>
+
+    <script>
+      const splashTexts = [
+        "Double CTO!",
+        "Runner en early game",
+        "Endurance IRL",
+        "#NOSPOF",
+        "Spawned in 1988",
+        "Respawn at coffee",
+        "Boss fight: tech debt",
+        "Still alive after deploy",
+        "XP gained on road & in prod",
+        "AFK 5 min = family hug",
+        "Only griefing allowed: Strava",
+      ];
+
+      function getDailySplashText() {
+        const today = new Date();
+        const startOfYear = new Date(today.getFullYear(), 0, 1);
+        const dayOfYear = Math.floor(
+          (today - startOfYear) / (1000 * 60 * 60 * 24)
+        );
+        const index = dayOfYear % splashTexts.length;
+        return splashTexts[index];
+      }
+
+      function adjustSplashTextSize() {
+        const splashTextElement = document.getElementById("splash-text");
+        if (!splashTextElement) return;
+
+        const splashText = getDailySplashText();
+        splashTextElement.textContent = splashText;
+
+        const textLength = splashText.length;
+        const screenWidth = window.innerWidth;
+
+        let baseFontSize = 1.5;
+
+        if (screenWidth <= 480) {
+          baseFontSize = 0.8;
+        } else if (screenWidth <= 768) {
+          baseFontSize = 1.0;
+        } else if (screenWidth <= 1024) {
+          baseFontSize = 1.2;
+        }
+
+        let fontSize = baseFontSize;
+
+        if (textLength > 30) {
+          fontSize = baseFontSize * 0.65;
+        } else if (textLength > 25) {
+          fontSize = baseFontSize * 0.75;
+        } else if (textLength > 20) {
+          fontSize = baseFontSize * 0.85;
+        } else if (textLength > 15) {
+          fontSize = baseFontSize * 0.9;
+        } else if (textLength > 10) {
+          fontSize = baseFontSize * 0.95;
+        }
+
+        splashTextElement.style.fontSize = fontSize + "rem";
+      }
+
+      adjustSplashTextSize();
+
+      window.addEventListener("resize", adjustSplashTextSize);
+
+      const messages = [
+        "<System> World loaded successfully.",
+        "<System> Gamemode updated to Creative.",
+        "<Eddy> Coffee buff applied. +10 focus.",
+        "<Eddy> Morning run completed. XP +42.",
+        "<System> CI/CD pipeline: green across all biomes.",
+        "<Eddy> Family checkpoint reached. Hearts refilled.",
+      ];
+
+      const chatBox = document.getElementById("chat-box");
+      let msgIndex = 0;
+
+      function addMessage() {
+        if (msgIndex >= messages.length) return;
+        const msgDiv = document.createElement("div");
+        msgDiv.className = "chat-message";
+        msgDiv.innerText = messages[msgIndex];
+        msgDiv.style.display = "block";
+        chatBox.appendChild(msgDiv);
+
+        // Fade out effect logic could go here
+        setTimeout(() => {
+          msgDiv.style.opacity = "0.5";
+        }, 5000);
+
+        msgIndex++;
+        setTimeout(addMessage, 2000 + Math.random() * 2000);
+      }
+
+      setTimeout(addMessage, 1000);
+
+      function visitLink(type) {
+        if (type === "linkedin") {
+          window.open("https://www.linkedin.com/in/eddymontus", "_blank"); // Placeholder URL
+        } else if (type === "github") {
+          window.open("https://github.com/emnbdx", "_blank");
+        } else if (type === "email") {
+          window.location.href = "mailto:contact@eddymontus.com";
+        } else if (type === "mdel") {
+          window.open("https://www.madietenligne.fr", "_blank");
+        } else if (type === "24h") {
+          window.open("https://www.24hdesquais.fr", "_blank");
+        } else if (type === "spreadly") {
+          window.open("https://www.spreadly.love", "_blank");
+        }
+      }
+
+      const tooltip = document.getElementById("tooltip");
+      const tooltipName = document.getElementById("tooltip-name");
+      const tooltipDesc = document.getElementById("tooltip-desc");
+
+      function showTooltip(name, desc, type) {
+        tooltip.style.display = "block";
+        tooltipName.innerText = name;
+        tooltipDesc.innerText = desc;
+      }
+
+      function hideTooltip() {
+        tooltip.style.display = "none";
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "1") visitLink("linkedin");
+        if (e.key === "2") visitLink("github");
+        if (e.key === "3") visitLink("email");
+      });
+
+      // Mouse move parallax effect for title
+      document.addEventListener("mousemove", (e) => {
+        const title = document.querySelector(".title-screen");
+        const x = (e.clientX - window.innerWidth / 2) / 50;
+        const y = (e.clientY - window.innerHeight / 2) / 50;
+        title.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+      });
+    </script>
+  </body>
+</html>
