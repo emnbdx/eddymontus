@@ -142,7 +142,7 @@
       .splash-text {
         position: absolute;
         top: 0;
-        right: 120px;
+        right: 20px;
         font-size: 1.5rem;
         color: #ffff55;
         transform: rotate(-20deg);
@@ -312,7 +312,7 @@
           font-size: 2rem;
         }
         .splash-text {
-          right: 60px;
+          right: 0px;
         }
         .chat-box {
           width: 350px;
@@ -335,8 +335,7 @@
           font-size: 1.5rem;
         }
         .splash-text {
-          right: 20px;
-          top: 10px;
+          right: 140px;
         }
         .chat-box {
           width: calc(100% - 40px);
@@ -405,8 +404,7 @@
           margin-top: 5px;
         }
         .splash-text {
-          right: 10px;
-          top: 5px;
+          right: 40px;
         }
         .chat-box {
           width: calc(100% - 20px);
@@ -535,7 +533,7 @@
       <div class="title-screen">
         <h1 class="main-title">EDDY MONTUS</h1>
         <div class="splash-text" id="splash-text">Double CTO!</div>
-        <h2 class="subtitle">Famille d'abord, sport ensuite, tech toujours</h2>
+        <h2 class="subtitle">Family first, sport next, tech always</h2>
       </div>
 
       <div class="crosshair"></div>
@@ -584,16 +582,13 @@
       <div class="hotbar-slot" style="background: #555">
         <span class="slot-number">5</span>
       </div>
-      <div class="hotbar-slot" style="background: #555">
-        <span class="slot-number">6</span>
-      </div>
       <div
         class="hotbar-slot"
         onclick="visitLink('24h')"
         onmouseenter="showTooltip('Défi', '24h des quais', '24h')"
         onmouseleave="hideTooltip()"
       >
-        <span class="slot-number">8</span>
+        <span class="slot-number">6</span>
         <div class="slot-icon">🏃‍♂️</div>
       </div>
       <div
@@ -602,17 +597,25 @@
         onmouseenter="showTooltip('Build', 'Madietenligne', 'mdel')"
         onmouseleave="hideTooltip()"
       >
-        <span class="slot-number">8</span>
+        <span class="slot-number">7</span>
         <div class="slot-icon">🧑‍⚕️</div>
       </div>
       <div
         class="hotbar-slot"
         onclick="visitLink('spreadly')"
-        onmouseenter="showTooltip('Build', 'Spreadlove', 'spreadly')"
+        onmouseenter="showTooltip('Build', 'Spreadly', 'spreadly')"
+        onmouseleave="hideTooltip()"
+      >
+        <span class="slot-number">8</span>
+        <div class="slot-icon">💌</div>
+      </div>
+      <div
+        class="hotbar-slot"
+        onmouseenter="showTooltip('Build', 'Something new', 'new')"
         onmouseleave="hideTooltip()"
       >
         <span class="slot-number">9</span>
-        <div class="slot-icon">💌</div>
+        <div class="slot-icon">🔮</div>
       </div>
     </div>
 
@@ -715,15 +718,13 @@
 
       function visitLink(type) {
         if (type === "linkedin") {
-          window.open("https://www.linkedin.com/in/eddymontus", "_blank"); // Placeholder URL
+          window.open("https://www.linkedin.com/in/eddymontus", "_blank");
         } else if (type === "github") {
           window.open("https://github.com/emnbdx", "_blank");
-        } else if (type === "email") {
-          window.location.href = "mailto:contact@eddymontus.com";
-        } else if (type === "mdel") {
-          window.open("https://www.madietenligne.fr", "_blank");
         } else if (type === "24h") {
           window.open("https://www.24hdesquais.fr", "_blank");
+        } else if (type === "mdel") {
+          window.open("https://www.madietenligne.fr", "_blank");
         } else if (type === "spreadly") {
           window.open("https://www.spreadly.love", "_blank");
         }
@@ -746,7 +747,9 @@
       document.addEventListener("keydown", (e) => {
         if (e.key === "1") visitLink("linkedin");
         if (e.key === "2") visitLink("github");
-        if (e.key === "3") visitLink("email");
+        if (e.key === "6") visitLink("24h");
+        if (e.key === "7") visitLink("mdel");
+        if (e.key === "8") visitLink("spreadly");
       });
 
       // Mouse move parallax effect for title
