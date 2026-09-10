@@ -258,7 +258,7 @@
       }
 
       .item-tooltip {
-        position: absolute;
+        position: fixed;
         bottom: 80px;
         left: 50%;
         transform: translateX(-50%);
@@ -268,10 +268,17 @@
         padding: 5px 10px;
         font-size: 1.2rem;
         display: none;
-        z-index: 10;
+        z-index: 110;
         text-align: center;
         border-radius: 2px;
         box-shadow: 2px 2px 0 #000;
+        pointer-events: none;
+        max-width: min(420px, 90vw);
+      }
+
+      .inventory-open .item-tooltip {
+        bottom: auto;
+        top: 8%;
       }
 
       .item-name {
@@ -281,6 +288,249 @@
         color: #aaaaaa;
         font-style: italic;
         font-size: 0.9rem;
+      }
+
+      .item-lore div {
+        margin: 1px 0;
+      }
+
+      /* --- Slot decorations: durability bar, tags, stack count, glint --- */
+
+      .slot-bar {
+        position: absolute;
+        bottom: 3px;
+        left: 4px;
+        right: 4px;
+        height: 4px;
+        background: #2b2b2b;
+        box-shadow: 1px 1px 0 #000;
+        z-index: 3;
+      }
+
+      .slot-bar-fill {
+        display: block;
+        height: 100%;
+      }
+
+      .slot-tags {
+        position: absolute;
+        top: 2px;
+        right: 3px;
+        display: flex;
+        gap: 2px;
+        z-index: 3;
+      }
+
+      .slot-tag {
+        min-width: 11px;
+        height: 11px;
+        font-size: 0.7rem;
+        line-height: 11px;
+        text-align: center;
+        color: #111;
+        border: 1px solid #000;
+      }
+
+      .slot-count {
+        position: absolute;
+        bottom: 7px;
+        right: 4px;
+        font-size: 0.95rem;
+        color: #fff;
+        text-shadow: 1px 1px 0 #000;
+        z-index: 3;
+      }
+
+      @keyframes enchant-glint {
+        from {
+          background-position: -150% 0;
+        }
+        to {
+          background-position: 250% 0;
+        }
+      }
+
+      .hotbar-slot.enchanted,
+      .inv-slot.enchanted {
+        overflow: hidden;
+      }
+
+      .hotbar-slot.enchanted::after,
+      .inv-slot.enchanted::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          115deg,
+          transparent 38%,
+          rgba(200, 130, 255, 0.32) 48%,
+          rgba(140, 215, 255, 0.32) 58%,
+          transparent 68%
+        );
+        background-size: 250% 100%;
+        animation: enchant-glint 2.6s linear infinite;
+        mix-blend-mode: screen;
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      .hotbar-slot.empty {
+        background: #555;
+      }
+
+      /* --- Inventory overlay (chest UI) --- */
+
+      .inventory-open .hotbar-container {
+        opacity: 0.25;
+      }
+
+      .inventory-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.7);
+        pointer-events: auto;
+      }
+
+      .inventory-overlay.open {
+        display: flex;
+      }
+
+      .inventory-panel {
+        background: #c6c6c6;
+        border: 4px solid #000;
+        box-shadow: inset 4px 4px 0 #fff, inset -4px -4px 0 #555,
+          8px 8px 0 rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        width: min(620px, 94vw);
+        max-height: 92vh;
+        overflow-y: auto;
+      }
+
+      .inventory-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 8px;
+      }
+
+      .inventory-title {
+        font-size: 1.5rem;
+        color: #404040;
+        text-shadow: 1px 1px 0 #eee;
+      }
+
+      .inventory-count {
+        font-size: 1.1rem;
+        color: #555;
+      }
+
+      .inventory-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        margin-bottom: 8px;
+      }
+
+      .inv-tab {
+        font-family: "VT323", monospace;
+        font-size: 1.05rem;
+        padding: 2px 8px;
+        background: #8b8b8b;
+        border: 2px solid #373737;
+        border-top-color: #fff;
+        border-left-color: #fff;
+        color: #fff;
+        text-shadow: 1px 1px 0 #000;
+        cursor: pointer;
+      }
+
+      .inv-tab:hover {
+        background: #a0a0a0;
+      }
+
+      .inv-tab.active {
+        background: var(--tab-color, #fff);
+        border-color: #000;
+        color: #111;
+        text-shadow: none;
+      }
+
+      .inventory-grid {
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        gap: 4px;
+        background: #8b8b8b;
+        border: 3px solid #373737;
+        border-bottom-color: #fff;
+        border-right-color: #fff;
+        padding: 6px;
+      }
+
+      .inv-slot {
+        aspect-ratio: 1;
+        min-width: 0;
+        background: #8b8b8b;
+        border: 3px solid #373737;
+        border-top-color: #fff;
+        border-left-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .inv-slot .slot-icon {
+        font-size: 1.5rem;
+      }
+
+      .inv-slot.empty {
+        cursor: default;
+      }
+
+      .inv-slot:not(.empty):hover {
+        background: #a0a0a0;
+      }
+
+      .inventory-hint {
+        margin: 8px 0 0;
+        text-align: center;
+        font-size: 1rem;
+        color: #555;
+      }
+
+      .inventory-hint kbd {
+        font-family: inherit;
+        background: #8b8b8b;
+        border: 1px solid #373737;
+        color: #fff;
+        padding: 0 4px;
+      }
+
+      #inventory-open {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        font-family: "VT323", monospace;
+        font-size: 1.2rem;
+        background: #8b8b8b;
+        border: 3px solid #373737;
+        border-top-color: #fff;
+        border-left-color: #fff;
+        color: #fff;
+        text-shadow: 1px 1px 0 #000;
+        padding: 6px 12px;
+        cursor: pointer;
+        pointer-events: auto;
+        z-index: 20;
+      }
+
+      #inventory-open:hover {
+        background: #a0a0a0;
       }
 
       /* Button Style for Links */
@@ -544,7 +794,7 @@
         </div>
         <div class="chat-message">&lt;Eddy&gt; Looking for a Double CTO?</div>
         <div class="chat-message" style="color: #ffff55">
-          * Press numbers 1-3 to navigate *
+          * Press 1-9 for the hotbar, E for the inventory *
         </div>
       </div>
     </div>
@@ -554,68 +804,22 @@
       <div class="item-lore" id="tooltip-desc">Description</div>
     </div>
 
-    <div class="hotbar-container">
-      <div
-        class="hotbar-slot"
-        onclick="visitLink('linkedin')"
-        onmouseenter="showTooltip('LinkedIn', 'Connect with me', 'linkedin')"
-        onmouseleave="hideTooltip()"
-      >
-        <span class="slot-number">1</span>
-        <div class="slot-icon">💼</div>
-      </div>
-      <div
-        class="hotbar-slot"
-        onclick="visitLink('github')"
-        onmouseenter="showTooltip('GitHub', 'View my code', 'github')"
-        onmouseleave="hideTooltip()"
-      >
-        <span class="slot-number">2</span>
-        <div class="slot-icon">👨‍💻</div>
-      </div>
-      <div class="hotbar-slot" style="background: #555">
-        <span class="slot-number">3</span>
-      </div>
-      <div class="hotbar-slot" style="background: #555">
-        <span class="slot-number">4</span>
-      </div>
-      <div class="hotbar-slot" style="background: #555">
-        <span class="slot-number">5</span>
-      </div>
-      <div
-        class="hotbar-slot"
-        onclick="visitLink('24h')"
-        onmouseenter="showTooltip('Défi', '24h des quais', '24h')"
-        onmouseleave="hideTooltip()"
-      >
-        <span class="slot-number">6</span>
-        <div class="slot-icon">🏃‍♂️</div>
-      </div>
-      <div
-        class="hotbar-slot"
-        onclick="visitLink('mdel')"
-        onmouseenter="showTooltip('Build', 'Madietenligne', 'mdel')"
-        onmouseleave="hideTooltip()"
-      >
-        <span class="slot-number">7</span>
-        <div class="slot-icon">🧑‍⚕️</div>
-      </div>
-      <div
-        class="hotbar-slot"
-        onclick="visitLink('spreadly')"
-        onmouseenter="showTooltip('Build', 'Spreadly', 'spreadly')"
-        onmouseleave="hideTooltip()"
-      >
-        <span class="slot-number">8</span>
-        <div class="slot-icon">💌</div>
-      </div>
-      <div
-        class="hotbar-slot"
-        onmouseenter="showTooltip('Build', 'Something new', 'new')"
-        onmouseleave="hideTooltip()"
-      >
-        <span class="slot-number">9</span>
-        <div class="slot-icon">🔮</div>
+    <div class="hotbar-container" id="hotbar-container"></div>
+
+    <button type="button" id="inventory-open">[E] Inventaire</button>
+
+    <div class="inventory-overlay" id="inventory-overlay">
+      <div class="inventory-panel">
+        <div class="inventory-header">
+          <span class="inventory-title">Inventaire des projets</span>
+          <span class="inventory-count" id="inventory-count"></span>
+        </div>
+        <div class="inventory-tabs" id="inventory-tabs"></div>
+        <div class="inventory-grid" id="inventory-grid"></div>
+        <p class="inventory-hint">
+          Barre = avancement &middot; reflet = en ligne &middot; chiffre =
+          stars &middot; <kbd>E</kbd> ou <kbd>Echap</kbd> pour fermer
+        </p>
       </div>
     </div>
 
@@ -716,42 +920,6 @@
 
       setTimeout(addMessage, 1000);
 
-      function visitLink(type) {
-        if (type === "linkedin") {
-          window.open("https://www.linkedin.com/in/eddymontus", "_blank");
-        } else if (type === "github") {
-          window.open("https://github.com/emnbdx", "_blank");
-        } else if (type === "24h") {
-          window.open("https://www.24hdesquais.fr", "_blank");
-        } else if (type === "mdel") {
-          window.open("https://www.madietenligne.fr", "_blank");
-        } else if (type === "spreadly") {
-          window.open("https://www.spreadly.love", "_blank");
-        }
-      }
-
-      const tooltip = document.getElementById("tooltip");
-      const tooltipName = document.getElementById("tooltip-name");
-      const tooltipDesc = document.getElementById("tooltip-desc");
-
-      function showTooltip(name, desc, type) {
-        tooltip.style.display = "block";
-        tooltipName.innerText = name;
-        tooltipDesc.innerText = desc;
-      }
-
-      function hideTooltip() {
-        tooltip.style.display = "none";
-      }
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "1") visitLink("linkedin");
-        if (e.key === "2") visitLink("github");
-        if (e.key === "6") visitLink("24h");
-        if (e.key === "7") visitLink("mdel");
-        if (e.key === "8") visitLink("spreadly");
-      });
-
       // Mouse move parallax effect for title
       document.addEventListener("mousemove", (e) => {
         const title = document.querySelector(".title-screen");
@@ -760,5 +928,6 @@
         title.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
       });
     </script>
+    <script src="js/projects.js"></script>
   </body>
 </html>

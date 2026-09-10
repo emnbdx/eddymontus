@@ -1,0 +1,5 @@
+.DS_Store
+.shots/
+node_modules/
+.env
+data/projects.mapping.json
