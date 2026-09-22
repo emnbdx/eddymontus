@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T20:34:42.788Z",
+  "generatedAt": "2026-09-22T20:38:54.797Z",
   "githubUser": "emnbdx",
   "stages": {
     "loot": {
@@ -241,7 +241,7 @@
       "lore": "Defi endurance",
       "stage": "prod",
       "tags": [],
-      "slot": 7,
+      "slot": null,
       "repo": "emnbdx/24hdesquais",
       "githubUrl": "https://github.com/emnbdx/24hdesquais",
       "language": "PHP",
@@ -436,7 +436,7 @@
       "lore": "Labo de performance",
       "stage": "prod",
       "tags": [],
-      "slot": null,
+      "slot": 7,
       "repo": "emnbdx/pace-lab",
       "githubUrl": "https://github.com/emnbdx/pace-lab",
       "language": "PHP",
