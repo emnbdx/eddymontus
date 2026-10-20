@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T20:38:54.797Z",
+  "generatedAt": "2026-10-20T21:31:18.626Z",
   "githubUser": "emnbdx",
   "stages": {
     "loot": {
@@ -54,6 +54,21 @@
   },
   "items": [
     {
+      "id": "better-engwe",
+      "name": "Better Engwe",
+      "icon": "🚲",
+      "url": "https://github.com/emnbdx/better-engwe",
+      "lore": null,
+      "stage": "poc",
+      "tags": [],
+      "slot": null,
+      "repo": "emnbdx/better-engwe",
+      "githubUrl": "https://github.com/emnbdx/better-engwe",
+      "language": "Java",
+      "stars": 0,
+      "pushedAt": "2026-10-18T22:32:18Z"
+    },
+    {
       "id": "openhomes",
       "name": "OpenHomes",
       "icon": "🏡",
@@ -67,6 +82,21 @@
       "language": null,
       "stars": 0,
       "pushedAt": "2026-07-28T08:57:24Z"
+    },
+    {
+      "id": "runforgood",
+      "name": "RunForGood",
+      "icon": "🏃",
+      "url": "https://runforgood.fr/",
+      "lore": "Course solidaire",
+      "stage": "poc",
+      "tags": [],
+      "slot": null,
+      "repo": null,
+      "githubUrl": null,
+      "language": null,
+      "stars": 0,
+      "pushedAt": null
     },
     {
       "id": "seo-machine",
@@ -129,19 +159,19 @@
       "pushedAt": "2026-07-12T11:48:33Z"
     },
     {
-      "id": "runforgood",
-      "name": "RunForGood",
-      "icon": "🏃",
-      "url": "https://runforgood.fr/",
-      "lore": "Course solidaire",
+      "id": "waf-waf",
+      "name": "Waf Waf",
+      "icon": "🛡️",
+      "url": "https://github.com/emnbdx/waf-waf",
+      "lore": null,
       "stage": "wip",
       "tags": [],
       "slot": null,
-      "repo": null,
-      "githubUrl": null,
-      "language": null,
+      "repo": "emnbdx/waf-waf",
+      "githubUrl": "https://github.com/emnbdx/waf-waf",
+      "language": "Go",
       "stars": 0,
-      "pushedAt": null
+      "pushedAt": "2026-10-20T02:14:59Z"
     },
     {
       "id": "drain-logger",
@@ -172,6 +202,21 @@
       "language": "JavaScript",
       "stars": 0,
       "pushedAt": "2024-06-20T15:02:25Z"
+    },
+    {
+      "id": "ovh-mysql-proxy",
+      "name": "OvH MySQL Proxy",
+      "icon": "🔑",
+      "url": "https://github.com/emnbdx/ovh-mysql-proxy",
+      "lore": "Expose un MySQL OVH privé en local quand le cluster refuse le forwarding SSH.",
+      "stage": "done",
+      "tags": [],
+      "slot": null,
+      "repo": "emnbdx/ovh-mysql-proxy",
+      "githubUrl": "https://github.com/emnbdx/ovh-mysql-proxy",
+      "language": "JavaScript",
+      "stars": 0,
+      "pushedAt": "2026-09-24T20:51:05Z"
     },
     {
       "id": "php-mysql-benchmark",
@@ -246,7 +291,7 @@
       "githubUrl": "https://github.com/emnbdx/24hdesquais",
       "language": "PHP",
       "stars": 0,
-      "pushedAt": "2026-05-11T12:29:02Z"
+      "pushedAt": "2026-10-12T23:10:50Z"
     },
     {
       "id": "3615-eddy",
@@ -306,7 +351,7 @@
       "githubUrl": "https://github.com/emnbdx/chill-okr",
       "language": "Hack",
       "stars": 0,
-      "pushedAt": "2026-01-29T10:24:50Z"
+      "pushedAt": "2026-10-12T23:20:05Z"
     },
     {
       "id": "ckoilip",
@@ -426,13 +471,13 @@
       "githubUrl": "https://github.com/emnbdx/madietenligne",
       "language": "HTML",
       "stars": 0,
-      "pushedAt": "2026-09-21T21:10:15Z"
+      "pushedAt": "2026-10-19T21:00:59Z"
     },
     {
       "id": "pace-lab",
       "name": "Pace Lab",
       "icon": "🏃‍♂️",
-      "url": "https://eddymontus.fr/pace-lab/stats",
+      "url": "pace-lab.run",
       "lore": "Labo de performance",
       "stage": "prod",
       "tags": [],
@@ -441,7 +486,7 @@
       "githubUrl": "https://github.com/emnbdx/pace-lab",
       "language": "PHP",
       "stars": 0,
-      "pushedAt": "2026-09-22T20:18:07Z"
+      "pushedAt": "2026-10-20T17:49:04Z"
     },
     {
       "id": "spreadly",
@@ -456,7 +501,7 @@
       "githubUrl": "https://github.com/emnbdx/spreadly",
       "language": "Twig",
       "stars": 0,
-      "pushedAt": "2026-02-13T13:58:10Z"
+      "pushedAt": "2026-10-12T23:11:12Z"
     },
     {
       "id": "tiny-logic",
